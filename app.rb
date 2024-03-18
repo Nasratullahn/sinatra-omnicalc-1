@@ -1,14 +1,14 @@
 require "sinatra"
 require "sinatra/reloader"
 
-get("/hello") do
+get("/howdy") do
   
   erb(:hello)
 end
 
 
 get("/square/new") do 
-  erb(:new_square_calc)
+  erb(:square_calc)
 end
 
 get("/square/results") do 
@@ -16,19 +16,19 @@ get("/square/results") do
   
   @the_result = @the_num ** 2
   
-  erb(:square_results)
+  erb(:square_res)
 end
 
 get("/square_root/new") do 
-  erb(:new_squareroot_calc)
+  erb(:squarerootcalc)
 end
 
 get("/square_root/results") do 
   @the_num = params.fetch("users_number").to_f
   
-  @the_result = @the_num ** 2
+  @the_result = Math.sqrt(@the_num)
   
-  erb(:square_root_results)
+  erb(:squarerootresults)
 end
 
 
