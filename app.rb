@@ -52,6 +52,10 @@ get("/payment/results") do
   @apr = params.fetch("user_apr").to_f
   @years = params.fetch("user_years").to_i
   @present_value = params.fetch("user_pv").to_f
+  @monthly_interest_rate = @apr / 100 / 12
+  @number_of_payments = @years * 12
+  @monthly_payment = @present_value * @monthly_interest_rate / (1 - (1 + @monthly_interest_rate)**-@number_of_payments)
+  
   erb(:payment_result)
 end
 

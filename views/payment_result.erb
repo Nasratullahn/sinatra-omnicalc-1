@@ -9,21 +9,21 @@
     APR
   </dt>
   <dd>
-   <%= @monthly_interest_rate = @apr / 100 / 12 %> 
+   <%= @apr.to_f.to_s + "0000%" %> 
   </dd>
 
   <dt>
     Number of years
   </dt>
   <dd>
-    <%= @number_of_payments = @years * 12 %>
+    <%= @years %>
   </dd>
 
   <dt>
     Principal
   </dt>
   <dd>
-      $<%= @monthly_payment = @present_value * @monthly_interest_rate / (1 - (1 + @monthly_interest_rate)**-@number_of_payments) %>
+      $<%= @present_value.to_f.to_s + "0" %>
   </dd>
 
   <dt>
