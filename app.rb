@@ -31,6 +31,18 @@ get("/square_root/results") do
   erb(:squarerootresults)
 end
 
+get ("/random/new") do
+  erb(:random) 
+end
+
+get("/random") do
+  @min = params[:min].to_f
+  @max = params[:max].to_f
+  @random_number = rand(min..max).to_f
+ 
+ 
+  erb(:randomres)
+end
 
 get("/") do
   "
