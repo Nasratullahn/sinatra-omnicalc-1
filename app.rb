@@ -43,6 +43,26 @@ get("/random/results") do
   erb(:random_result)
 end
 
+
+get ("/payment/new") do
+  erb (:payment)
+end
+
+get("/payment/results") do
+  @apr = params.fetch("user_apr").to_f
+  @years = params.fetch("user_years").to_i
+  @present_value = params.fetch("user_pv").to_f
+  erb(:payment_result)
+end
+
+
+
+get ("/payment/new") do
+  erb (:payment)
+end
+
+
+
 get("/") do
   "
   <h1>Welcome to your Sinatra App!</h1>
