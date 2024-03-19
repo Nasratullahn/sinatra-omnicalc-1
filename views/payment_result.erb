@@ -9,7 +9,7 @@
     APR
   </dt>
   <dd>
-   <%= @apr.to_f.to_s + "0000%" %> 
+   <%= @apr.to_fs(:percentage, {:precision => 4}) %> 
   </dd>
 
   <dt>
@@ -23,14 +23,14 @@
     Principal
   </dt>
   <dd>
-      $<%= @present_value.to_f.to_s + "0" %>
+      <%= @present_value.to_fs(:currency, precision: 2) %>
   </dd>
 
   <dt>
     Payment
   </dt>
   <dd>
-   $<%= @monthly_payment.round(2) %>
+   <%= @monthly_payment.round(2).to_fs(:currency, precision: 2) %>
   </dd>
 </dl>
 
